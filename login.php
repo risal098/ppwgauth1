@@ -164,6 +164,9 @@ $clientSecret = "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";
               <p class="forgot-password text-right">
                 <a href="#">Forgot password?</a>
               </p>
+              <p class="forgot-password text-right">
+                <a href="register.php">Register</a>
+              </p>
             </form>
           </div>
         </div>
