@@ -1,0 +1,71 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardEdit{
+    padding-left: 15px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+}
+.block{
+    padding-left: 15PX;
+    padding-top: 12px;
+   
+  background-color: green;
+  display: flex;
+}
+.commonDiv{
+    justify-content: center;
+    display:flex;
+    
+}
+.commonLabel{
+    justify-content: left;
+    display:flex;
+}
+.block{
+    padding-left: 15PX;
+    padding-top: 12px;
+   
+  background-color: #10121C;
+  display: flex;
+  color: white;
+}
+.blocks{
+    justify-content: center;
+    padding-left: 15PX;
+    padding-top: 4px;
+   border-radius: 15px;
+  background-color: #10121C;
+  display: flex;
+  color: white;
+}
+
+.cardEdit{
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    min-width: 400px;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

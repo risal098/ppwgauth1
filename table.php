@@ -1,0 +1,122 @@
+<?php
+
+$servername = "localhost"; 
+$usernamedb = "root";
+$passworddb = ""; 
+$dbname = "utsiakad";
+try{
+    $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);}
+    catch(Exception $e){
+        echo "Error connecting to database, pastikan format database benar (ikuti langkah file catatan): <br>";
+        echo $e->getMessage();
+        die("Connection failed: " . $conn->connect_error);
+    }
+if ($conn->connect_error) {
+    echo "Error connecting to database, pastikan format database benar (ikuti langkah file catatan): ";    
+    die("Connection failed: " . $conn->connect_error);
+}
+
+    $adminId= $_GET['adminId'];
+    $sql = "SELECT * FROM akun WHERE id=$adminId";
+    $result = $conn->query($sql);
+    $row=$result->fetch_assoc();
+    $email=$row['email'];
+    //$role=$row['role'];
+   
+
+
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="table.css">
+    </head>
+    <body>
+        <div class="mainDiv">
+            <div class="mainLeftDiv">
+            <div class="commonDiv"></div>
+                    <div class="cardLeft">
+                        <div class="commonDiv"><img src="./assets/defaultAcc.png" style="border-radius:50%"
+                            height="90px" width="90px"> </div>
+                            <div class="commonDiv"><p><?php echo $email?></p> </div>
+                            <div class="commonDiv"><p>admin</p> </div>
+                    </div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+                    <div class="commonOption"><a><img src="assets/logoTable.png" height="14px" width="14px">
+                    Table Data</a> </div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+                    <div class="commonOption"><a href=<?php echo "tambah.php?adminId=$adminId"?>><img src="assets/plus.png" height="16px" width="16px">
+                    Tambah Data</a> </div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+                    <div class="commonOption"><a class="delete" href=<?php echo "/login.php"?>><img src="assets/logout.png" height="19px" width="19px">
+                    Logout</a> </div>
+
+            </div>
+            <div class="mainRightDiv">
+                <div class="commonDiv"></div>
+                <div class="block" style="min-height:45px;" name="block2"><p>SIAKAD UNJ - ADMIN</p>
+                <div class="block" style="min-height:25px;" name="block2"></div>
+                    <img src="./assets/logoUnj.png" alt="logo unj" height="38px" width="38px">
+                </div>
+                <div class="commonDiv">
+                <?php
+                    try{
+
+                   
+                    $urutan=1;    
+                    $sql = "SELECT * FROM data_dasar";
+                    $result = $conn->query($sql);
+
+
+                    if ($result->num_rows > 0) {
+                        echo '<table border="1">';
+                        echo '<tr>
+                        <th >No</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Fakultas</th>
+                        <th>Status</th>
+                        <th>Tahun Masuk</th>
+                        <th>Alamat</th>
+                        <th >Aksi</th>
+                        </tr>';
+
+
+                        while ($row = $result->fetch_assoc()) {
+                        //  echo $row["Foto"];
+                            echo '<tr>';
+                            echo '<td ><div class="commonDiv">' . $urutan . '</div></td>';
+                            echo '<td ><div class="commonDiv">' . $row["NIM"] . '</div></td>';
+                            echo '<td ><div class="commonDiv">' . $row["NAMA"] . '</div></td>';
+                            echo '<td ><div class="commonDiv">' . $row["FAKULTAS"] . '</div></td>';
+                            echo '<td ><div class="commonDiv">' . $row["STATUSUKT"] . '</div></td>';
+                            echo '<td ><div class="commonDiv">'.$row["TAHUNMASUK"].'</div></td>';
+                            echo '<td ><div class="commonDiv">'.$row["ALAMAT"].'</div></td>';
+                            echo '<td ><div class="commonDiv"><a class="edit" href="edit.php?adminId='.$adminId.'&id='.$row["ID"].'">EDIT</a>
+                            <div class="block" style="min-height:2px; background-color: transparent;;" name="block2"></div>
+                            <a class="delete" href="delete.php?adminId='.$adminId.'&id='.$row["ID"].'">DELETE</a>
+                            </div></td>';
+                            echo '</tr>';
+                            $urutan+=1;
+                        }
+
+                        echo '</table>';
+                    } else {
+                        echo 'No data in the database.';
+                    }
+
+
+                    $conn->close();}
+                    catch (Exception $e) {
+                        echo "<p>koneksi eror,pastikan database sudah diinstal pada mysql dan pastikan credentials sudah sesuai database anda</p>",$e->getMessage(), "\n";;
+                    
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
