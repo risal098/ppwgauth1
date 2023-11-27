@@ -12,9 +12,7 @@ body{
     position: absolute;
     
 }
-.block{
-  
-}
+
 .commonDiv{
     justify-content: center;
     display:flex;
@@ -56,4 +54,19 @@ input[type=submit] {
     border-radius: 4px;
     color:white;
     background-color: #5B64BD;
+}
+    
+.login-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+    
+.g_id_signin{
+
+    margin: 10px;
+
 }
