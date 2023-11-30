@@ -110,79 +110,76 @@ $clientSecret = "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";
         }
    }
 /*
- data-client_id="1085395854703-4vnu3f6g7cofi23octqvdpd50s89844t.apps.googleusercontent.com"
-                    data-context="signin"
-                    data-ux_mode="popup"
-                    data-callback="handleCredentialResponse"
-                    data-auto_prompt="false"
+   
 */
+
+//$sql = "SELECT * FROM table1";
+//$result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIAKAD Login</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="login-form">
-            <img src="assets/logoUnj.png" class="logo w-25 position-relative translate-middle translate-middle-x pb-2 start-50">
-            <h3 class="position-relative">Login to SIAKAD</h3>
-            <p class="text-danger"> <?php echo $status; ?> </p>
-            <form method="post" action="login.php">
-              <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="username">
-              </div>
-              <div class="form-group mb-3">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
-              </div>
-              <div class="form-group captcha mb-3">
-                <p>what is <?php echo $num1; ?> + <?php echo $num2; ?>? </p>
-                <input type="text" class="form-control" name="angka">
-                <input type="hidden" name="num1" value="<?php echo $num1; ?>">
-                <input type="hidden" name="num2" value="<?php echo $num2; ?>">
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <a href="<?=$clients1->createAuthUrl()?>">
-              <div id="g_id_onload"
-              data-ux_mode="false"
-                   > 
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="mainDiv">
+            <div class="mainLeftDiv">
+                <div class="block"style="min-height:30px;" name="block1"></div>
+                <div class="commonDiv">
+                    <img src="./assets/logoUnj.png" alt="logoUnj" height="70 px">
+                </div>
+                <div class="commonDiv">
+                    <p style="font-size:18px;color:#7DA950;font-family: Arial;font-weight: normal;">SIAKAD </p>
+                    <div style="min-width:7px"> </div>
+                    <p style="font-size:18px;color:#BFAC00;font-family: Arial;font-weight: normal;">UNJ</p>
+                </div>
+                
+                <div id="loginCard" class="loginCard">
+                    <div class="block" style="min-height:25px;" name="block2"></div>
+                    <div class="commonDiv">
+                        <p style="font-size:28px;color:white;font-family: Arial;font-weight: normal;">LOGIN</p>
+                    </div>
+                    <div class="commonDiv">
+                        <p style="color:#FF6161"><?php echo $status;?></p>
+                    </div>
+                    <div class="block" style="min-height:20px;" name="block2"></div>
+                    <div class="commonDiv">
+                        <form method="post" action="/login.php">
+                            
+                            <input type="text"  placeholder="email"  name="username"  required><br><br>
+                            <input type="password"  placeholder="password"  name="password" required><br><br>
+                            <div style="padding:15 px 15px;background-color:#5B64BD;min-height:30px;display:flex">
+                                <div class="block" style="min-width:20px;background-color:#5B64BD;" name="block2"></div>
+                                <p style="color:white"><?php echo " hitung $num1 + $num2 ?"?></p>
+                            </div>
+                            <input type="text" placeholder="jawaban" name="angka">
+                            <input type="hidden" name="num1" value="<?php echo $num1; ?>">
+                            <input type="hidden" name="num2" value="<?php echo $num2; ?>">
+                            <div class="block" style="min-height:20px;" name="block2"></div>
+                            <div class="commonDiv" style="justify-content:right">
+                                <input type="submit" value="Submit" >    
+                            </div>
+                            <div class="block" style="min-height:20px;" name="block2"></div>
+                            
+                        </form>
+                        
+                        <a href="<?=$clients1->createAuthUrl()?>">
+                <button >
+                    Sign in with Google Account
+                  </button>
+                </a>
+                    </div>
+                    <div style="background-color:#5B64BD;min-height:40px">
+                    <div class="block" style="min-height:10px;" name="block2"></div>
+                    <a style="padding-left:14px;color:white">< Ubah Password</a></div>
+                    
                 </div>
 
-                <div class="g_id_signin"
-                    data-type="standard"
-                    data-shape="rectangular"
-                    data-theme="outline"
-                    data-text="signin_with"
-                    data-size="large"
-                    data-logo_alignment="left">
-                </div></a>
-              <p class="forgot-password text-right">
-                <a href="#">Forgot password?</a>
-              </p>
-              <p class="forgot-password text-right">
-                <a href="register.php">Register</a>
-              </p>
-            </form>
-          </div>
+            </div>
+            <div class="mainRightDiv">
+                <img src="./assets/gedung.jpg" alt="gedung UNJ" height="450px" width="900px">
+            </div>
         </div>
-        <div class="col-md-6 d-flex">
-          <img src="assets/gedung.jpg" class="rounded gedung mt-5 mb-5">
-        </div>
-      </div>    
-    </div>
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <script src="bootstrap-autocomplete.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-  </body>
+    </body>
+
 </html>
