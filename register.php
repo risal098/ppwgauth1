@@ -154,24 +154,17 @@ if (isset($_GET['code'])) {
             </div>
             <div class="g-recaptcha" data-sitekey="6LfSXx0pAAAAAFr_w8bwEpXjt5cXaztTxu1rnwZG"></div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="<?=$client->createAuthUrl()?>">
-              <div id="g_id_onload"
-              data-ux_mode="false"
-                   > 
-                </div>
+            
+            
 
-                <div class="g_id_signin"
-                    data-type="standard"
-                    data-shape="rectangular"
-                    data-theme="outline"
-                    data-text="signin_with"
-                    data-size="large"
-                    data-logo_alignment="left">
-                </div></a>
             <p class="forgot-password text-right">
               <a href="login.php">Already have an account? Login</a>
             </p>
           </form>
+          <a href="<?=$client->createAuthUrl()?>" class="btn btn-default" id="bCheckIn" value="action01">
+        <img src="assets/gugel.png" width="35" height="35"/>
+        <span class="hidden-xs hidden-sm">Sign Up with Google Account</span>
+    </a>
         </div>
       </div>
       

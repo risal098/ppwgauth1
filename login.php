@@ -151,20 +151,11 @@ $clientSecret = "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";
                 <input type="hidden" name="num2" value="<?php echo $num2; ?>">
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
-              <a href="<?=$clients1->createAuthUrl()?>">
-              <div id="g_id_onload"
-              data-ux_mode="false"
-                   > 
-                </div>
-
-                <div class="g_id_signin"
-                    data-type="standard"
-                    data-shape="rectangular"
-                    data-theme="outline"
-                    data-text="signin_with"
-                    data-size="large"
-                    data-logo_alignment="left">
-                </div></a>
+              <a href="<?=$clients1->createAuthUrl()?>" class="btn btn-default" id="bCheckIn" value="action01">
+        <img src="assets/gugel.png" width="35" height="35"/>
+        <span class="hidden-xs hidden-sm">Sign in with Google Account</span>
+    </a>
+              
               <p class="forgot-password text-right">
                 <a href="#">Forgot password?</a>
               </p>
