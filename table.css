@@ -89,7 +89,7 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    min-width: 400px;
+    min-width: 800px;
   }
   
   input[type=submit] {

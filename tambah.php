@@ -3,7 +3,7 @@
 $servername = "localhost"; 
 $usernamedb = "root";
 $passworddb = ""; 
-$dbname = "utsiakad";
+$dbname ="ppwauth2";
 $status="";
 try{
     $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);}
@@ -24,22 +24,36 @@ if ($conn->connect_error) {
     $row=$result->fetch_assoc();
     $email=$row['email'];
    // $role=$row['role'];
-   
+   $sqlBiodata="SELECT * FROM biodata WHERE id=$adminId";
+   $resultBiodata = $conn->query($sqlBiodata);
+   $rowBiodata=$resultBiodata->fetch_assoc();
+
 
    if($_SERVER["REQUEST_METHOD"] == "POST"){
     try{
-   $NIM=($_POST['NIM']);
-   $TAHUN=($_POST['TahunMasuk']);
-   $NAMA=$_POST['NamaLengkap'];
-   $FAKULTAS=$_POST['Fakultas'];
-   $STATUS=$_POST['Status'];
-   $ALAMAT=$_POST['Alamat'];
+        
+   $nama=($_POST["nama"]);
+   $noreg=($_POST["noreg"]);
+   $ttl=$_POST["ttl"];
+   $email=$_POST["email"];
+   $telepon=$_POST["telepon"];
+   $ibu=$_POST["ibu"];
+   $ayah=$_POST["ayah"];
+   $alamat=$_POST["alamatLengkap"];
    
-$sql="INSERT INTO `data_dasar`( `NIM`, `NAMA`,  `ALAMAT`,   `FAKULTAS`, `TAHUNMASUK`,`STATUSUKT`)
- VALUES ($NIM,'$NAMA','$ALAMAT','$FAKULTAS',$TAHUN,'$STATUS')";
+$sql="UPDATE `biodata` SET 
+`nama`='$nama'
+,`noreg`=$noreg
+,`ttl`='$ttl'
+,`email`='$email'
+,`telepon`='$telepon'
+,`ibu`='$ibu'
+,`ayah`='$ayah'
+,`alamatlengkap`='$alamat' 
+WHERE id=$adminId";
 $conn->query($sql);
-header("Location: /table.php?adminId=$adminId");
-}catch(Exception $e){ $status="make sure to check Tahun Masuk data type (integer only)<br> and make sure database connection is no problem";}
+header("Location: /tambah.php?adminId=$adminId");
+}catch(Exception $e){ $status="make sure to check no registrasi data type (integer only)<br> and make sure database connection is no problem";}
 
 
    
@@ -65,7 +79,11 @@ header("Location: /table.php?adminId=$adminId");
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
                     <div class="commonOption"><a href=<?php echo "table.php?adminId=$adminId"?>><img src="assets/logoTable.png" height="16px" width="16px">Table Data</a> </div>
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
-                    <div class="commonOption"><a><img src="assets/plus.png" height="14px" width="14px">Tambah Data</a> </div>
+            <div class="commonOption"><a href=<?php echo "krs.php?adminId=$adminId" ?>><img src="assets/plus.png"
+                        height="16px" width="16px">
+                    KRS </a> </div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+                    <div class="commonOption"><a><img src="assets/plus.png" height="14px" width="14px">BIODATA</a> </div>
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
@@ -87,21 +105,34 @@ header("Location: /table.php?adminId=$adminId");
                 <form method="post" action="/tambah.php?adminId=<?php echo $adminId ?>">
                     
                     
-                    <div class="blocks" style="min-height:25px;" name="block2"><p>EDIT DATA</p></div>
+                    <div class="blocks" style="min-height:25px;" name="block2"><p>BIODATA</p></div>
                     <div class="commonDiv"><p style="color:red"><?php echo "$status"?></p></div>
-                    <div class="commonLabel"><p>NIM:</p></div>
-                    <input type="text" name="NIM"  placeholder="NIM" required>
+
+                   
+                    
                     <div class="commonLabel"><p>Nama Lengkap:</p></div>
-                    <input type="text" name="NamaLengkap"  placeholder="Nama Lengkap"  required>
-                    <div class="commonLabel"><p>Fakultas:</p></div>
-                    <input type="text" name="Fakultas"  placeholder="Fakultas"  required>
-                    <div class="commonLabel"><p>Status:</p></div>
-                    <input type="text" name="Status"  placeholder="Status"  required>
-                    <div class="commonLabel"><p>Tahun Masuk:</p></div>
-                    <input type="text" name="TahunMasuk"  placeholder="Tahun Masuk"  required>
-                    <div class="commonLabel"><p>Alamat:</p></div>
-                    <input type="text" name="Alamat"  placeholder="Alamat"  required>
-               
+                    <input type="text" placeholder="Nama Lengkap"  name="nama"  value="<?php echo $rowBiodata["nama"] ?>" required>
+
+                    <div class="commonLabel"><p>No Registrasi:</p></div>
+                    <input type="text" value="<?php echo $rowBiodata["noreg"] ?>"  name="noreg"  placeholder="No Registrasi"  required>
+
+                    <div class="commonLabel"><p>tempat tanggal lahir</p></div>
+                    <input type="text" value="<?php echo $rowBiodata["ttl"] ?>"  name="ttl"  placeholder="tempat tanggal lahir"  required>
+
+                    <div class="commonLabel"><p>email</p></div>
+                    <input type="text" value="<?php echo $rowBiodata["email"] ?>"  name="email"  placeholder="email"   required>
+
+                    <div class="commonLabel"><p>telepon</p></div>
+                    <input type="text" value="<?php echo $rowBiodata["telepon"] ?>"  name="telepon"  placeholder="telepon"  required>
+
+                    <div class="commonLabel"><p>ibu</p></div>
+                    <input type="text" value="<?php echo $rowBiodata["ibu"] ?>"  name="ibu"  placeholder="ibu"  required>
+
+                    <div class="commonLabel"><p>ayah</p></div>
+                    <input type="text" value="<?php echo $rowBiodata["ayah"] ?>"  name="ayah" placeholder="ayah"   required>
+
+                    <div class="commonLabel"><p>alamat Lengkap</p></div>
+                    <input type="text" value="<?php echo $rowBiodata["alamatlengkap"] ?>"  name="alamatLengkap" placeholder="alamat Lengkap"  required>
                     <input type="submit">
                 </form>
                 </div>

@@ -30,7 +30,7 @@ if (isset($_GET['code'])) {
      $servername = "localhost"; 
    $usernamedb = "root";
    $passworddb = ""; 
-   $dbname = "utsiakad";
+   $dbname = "ppwauth2";
      $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);
                    $result = $conn->query($sql);
                    $row=$result->fetch_assoc();

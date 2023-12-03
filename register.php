@@ -11,7 +11,7 @@ $status="";
 $servername = "localhost"; 
    $usernamedb = "root";
    $passworddb = ""; 
-   $dbname = "utsiakad";
+   $dbname = "ppwauth2";
    $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);
 // 
 $client = new Google_Client();
@@ -20,6 +20,38 @@ $client->setClientSecret($clientSecret);
 $client->setRedirectUri($redirectUri);
 $client->addScope("email");
 $client->addScope("profile");
+$khs=[
+  "2021"=>
+  [
+  ["Kalkulus Diferensial",12001,rand(67,98)],
+  ["Perancangan Program",12002,rand(67,98)],
+  ["Pemrograman Dasar",12003,rand(67,98)],
+  ["Statistika Dasar",12004,rand(67,98)],
+  ["Komputasi Dasar",12005,rand(67,98)],
+  ["Matematika 2",12006,rand(67,98)],
+  ["Etika Profesi",12007,rand(67,98)],
+  ]
+  ,
+"2022"=>
+  [
+  ["Kalkulus Integral",13001,rand(67,98)],
+  ["Perancangan Software",13002,rand(67,98)],
+  ["Pemrograman Objek",13003,rand(67,98)],
+  ["Aljabar Linear",13004,rand(67,98)],
+  ["Data Raya",13005,rand(67,98)],
+  ["Kecerdasan buatan",13006,rand(67,98)],
+  ["Etika Profesi",13007,rand(67,98)],
+  ["Komputer Masyarakat",13008,rand(67,98)],]
+  ];
+$krs=[
+    
+  ["Kalkulus Integral 2",14001],
+  ["Maha Data",14002],
+  ["Automata",14003],
+  ["Penelitian Ilmiah",14004],
+  ["Metode Numerik",14005],
+  ["Manajemen Proyek",14006]
+];
 function isValid() 
 {
     try {
@@ -61,7 +93,10 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $isRegistered=$row['email'];
                 if($isRegistered==$email){
                   $status= "already registered boiiii";
-                }else{$sql = "INSERT INTO auth ( email,password) VALUES('$email','$password')";
+                }else{
+                 
+                  
+                  $sql = "INSERT INTO auth ( email,password) VALUES('$email','$password')";
                   $result = $conn->query($sql);
                   $sql = "INSERT INTO akun ( email) VALUES('$email') ";
                               $result = $conn->query($sql);
@@ -70,6 +105,15 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                               $result = $conn->query($sql);
                               $row=$result->fetch_assoc();
                               $adminId=$row['id'];
+                              $sql =  "INSERT INTO `biodata`(`id`) VALUES ($adminId)";
+                              $result = $conn->query($sql);
+                              $tokhs=json_encode($khs);
+                              $sql =  "INSERT INTO `matkulkhs`(`id`,`matkulkhs`) VALUES ($adminId,'$tokhs')";
+                              $result = $conn->query($sql);
+                              $tokrs=json_encode($krs);
+                              $sql =  "INSERT INTO `matkulkrs`(`id`,`krs`) VALUES ($adminId,'$tokrs')";
+                              $result = $conn->query($sql);
+                              ////////////////registration
                                     header("Location: table.php?adminId=$adminId");}
                                   }}
   }
@@ -97,15 +141,28 @@ if (isset($_GET['code'])) {
                   $result = $conn->query($sql);
                   $row=$result->fetch_assoc();
                       $adminId=$row['id'];
+                      $sql =  "INSERT INTO `biodata`(`id`) VALUES ($adminId)";
+                              $result = $conn->query($sql);
+                              $tokhs=json_encode($khs);
+                              $sql =  "INSERT INTO `matkulkhs`(`id`,`matkulkhs`) VALUES ($adminId,'$tokhs')";
+                              
+                              $result = $conn->query($sql);
+                              $tokrs=json_encode($krs);
+                              $sql =  "INSERT INTO `matkulkrs`(`id`,`krs`) VALUES ($adminId,'$tokrs')";
+                              $result = $conn->query($sql);
+                              print $tokrs;
+                              print($tokhs);
+                              //////////////////////////registraionb
                       header("Location: table.php?adminId=$adminId");}
                       catch(Exception $e){
-                        echo "already registered";
+                      //  echo "already registered";
                         $clients->revokeToken();
                         $client->revokeToken();
                         $sql = "SELECT * FROM akun WHERE email='$email' ";
                   $result = $conn->query($sql);
                   $row=$result->fetch_assoc();
                       $adminId=$row['id'];
+                     
                       header("Location: table.php?adminId=$adminId");
                       }
   
@@ -138,10 +195,7 @@ if (isset($_GET['code'])) {
           <h3 class="position-relative">Register New Account</h3>
           <p style="color:red"><?php echo "$status";?></p>
           <form method="post" action="register.php">
-            <div class="form-group mb-3">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name">
-            </div>
+      
             
             <div class="form-group mb-3">  
               <label for="email">Email</label>

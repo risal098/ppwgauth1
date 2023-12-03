@@ -2,7 +2,7 @@
 $servername = "localhost"; 
 $usernamedb = "root";
 $passworddb = ""; 
-$dbname = "utsiakad";
+$dbname ="ppwauth2";
 $status="";
 try{
     $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);}

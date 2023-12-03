@@ -3,7 +3,7 @@
 $servername = "localhost"; 
 $username = "root";
 $password = ""; 
-$dbname = "utsiakad";
+$dbname ="ppwauth2";
 
 
 try{

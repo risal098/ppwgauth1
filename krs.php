@@ -1,5 +1,7 @@
 <?php
-
+if( $_GET['adminId']==null){
+    echo "wrong acces method :(" ;
+}
 $servername = "localhost";
 $usernamedb = "root";
 $passworddb = "";
@@ -50,12 +52,11 @@ $email = $row['email'];
                 </div>
             </div>
             <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
-            <div class="commonOption"><a><img src="assets/logoTable.png" height="14px" width="14px">
+            <div class="commonOption"><a href=<?php echo "table.php?adminId=$adminId" ?>><img src="assets/logoTable.png" height="14px" width="14px">
                     Table Data</a> </div>
-            <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
-            <div class="commonOption"><a href=<?php echo "krs.php?adminId=$adminId" ?>><img src="assets/plus.png"
-                        height="16px" width="16px">
-                    KRS </a> </div>
+                    <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
+            <div class="commonOption"><a><img src="assets/logoTable.png" height="14px" width="14px">
+                    KRS</a> </div>
             <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
             <div class="commonOption"><a href=<?php echo "tambah.php?adminId=$adminId" ?>><img src="assets/plus.png"
                         height="16px" width="16px">
@@ -77,67 +78,54 @@ $email = $row['email'];
                 <img src="./assets/logoUnj.png" alt="logo unj" height="38px" width="38px">
             </div>
             <div class="commonDiv">
-            </div>
-            <!-- hias bang-->
-          
-            <?php
-                
-                try{
-                    $sql = "SELECT matkulkhs FROM matkulkhs WHERE id=$adminId";
-                $result = $conn->query($sql);
-                $result=$result->fetch_assoc();
-                $decjson=json_decode($result["matkulkhs"],true);
-                echo "<div class='commonDiv'>";
-                foreach($decjson as $key => $_value) {
-                    echo "<a href='table.php?adminId=$adminId&tahunkhs=$key'>$key";
-                    echo "</a>";
-                  }
-               echo "</div>";
-                  if($_GET['tahunkhs']!=null){
-                
 
-              //   {
-                    echo '<table border="1">';
-                    echo '<tr>
-                    <th >No</th>
-                    <th>Nama Matkul</th>
-                    <th>Kode Matkul</th>
-                    <th>Nilai Matkul</th>
-                    </tr>';
+                <?php
+                
+                    try{
 
-                    $urutan=1; 
-                    foreach($decjson as $key => $_value)
-                    
-                     {
-                        if($key==$_GET['tahunkhs']){
-                        while ($urutan<=count($_value)){
-                        echo '<tr>';
-                        echo '<td ><div class="commonDiv">' . $urutan . '</div></td>';
-                        echo '<td ><div class="commonDiv">' . $_value[$urutan-1][0] . '</div></td>';
-                        echo '<td ><div class="commonDiv">' . $_value[$urutan-1][1] . '</div></td>';
-                        echo '<td ><div class="commonDiv">' . $_value[$urutan-1][2] . '</div></td>';
                    
-                        
-                        echo '</tr>';
-                        $urutan+=1;}}
+                      
+                    $sql = "SELECT krs FROM matkulkrs WHERE id=$adminId";
+                    $result = $conn->query($sql);
+                    $result=$result->fetch_assoc();
+                    $decjson=json_decode($result["krs"],true);
+
+                  //   {
+                        echo '<table border="1">';
+                        echo '<tr>
+                        <th >No</th>
+                        <th>Nama Matkul</th>
+                        <th>Kode Matkul</th>
+                     
+                        </tr>';
+
+                        $urutan=1; 
+                        while ($urutan<=count($decjson)) {
+                        //  echo $row["Foto"];
+                            echo '<tr>';
+                            echo '<td ><div class="commonDiv">' . $urutan . '</div></td>';
+                            echo '<td ><div class="commonDiv">' . $decjson[$urutan-1][0] . '</div></td>';
+                            echo '<td ><div class="commonDiv">' . $decjson[$urutan-1][1] . '</div></td>';
+                       
+                            
+                            echo '</tr>';
+                            $urutan+=1;
+                        }
+
+                        echo '</table>';
+                  //  } else {
+                    //    echo 'No data in the database.';
+                 //   }
+
+
+                    $conn->close();}
+                    catch (Exception $e) {
+                        echo "<p>koneksi eror,pastikan database sudah diinstal pada mysql dan pastikan credentials sudah sesuai database anda</p>",$e->getMessage(), "\n";;
+                    
                     }
-
-                    echo '</table>';
-              //  } else {
-                //    echo 'No data in the database.';
-             //   }
-
-              }else{
-
-              }
-                $conn->close();}
-                catch (Exception $e) {
-                    echo "<p>koneksi eror,pastikan database sudah diinstal pada mysql dan pastikan credentials sudah sesuai database anda</p>",$e->getMessage(), "\n";;
-                
-                }
-            
-            ?>
-            
+                   
+                ?>
+            </div>
         </div>
     </div>
 </body>
