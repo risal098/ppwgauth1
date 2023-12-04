@@ -77,7 +77,7 @@ header("Location: /tambah.php?adminId=$adminId");
                             <div class="commonDiv"><p>admin</p> </div>
                     </div>
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
-                    <div class="commonOption"><a href=<?php echo "table.php?adminId=$adminId"?>><img src="assets/logoTable.png" height="16px" width="16px">Table Data</a> </div>
+                    <div class="commonOption"><a href=<?php echo "table.php?adminId=$adminId"?>><img src="assets/logoTable.png" height="16px" width="16px">KHS</a> </div>
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
             <div class="commonOption"><a href=<?php echo "krs.php?adminId=$adminId" ?>><img src="assets/plus.png"
                         height="16px" width="16px">

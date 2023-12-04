@@ -62,7 +62,13 @@ tr:nth-child(even) {
   }
 th,td{
  
-    max-width: 230px;
+    max-width: 500px;
+    min-width:230px
+}
+th{
+  background-color: #10121C;
+  padding: 15px 15px;
+  color: #ececec;
 }
 
 .cardLeft{

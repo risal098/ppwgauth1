@@ -94,17 +94,17 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 if($isRegistered==$email){
                   $status= "already registered boiiii";
                 }else{
-                 
-                  
-                  $sql = "INSERT INTO auth ( email,password) VALUES('$email','$password')";
-                  $result = $conn->query($sql);
                   $sql = "INSERT INTO akun ( email) VALUES('$email') ";
-                              $result = $conn->query($sql);
-                              
-                  $sql = "SELECT * FROM akun WHERE email='$email' ";
-                              $result = $conn->query($sql);
-                              $row=$result->fetch_assoc();
-                              $adminId=$row['id'];
+                  $result = $conn->query($sql);
+                  
+      $sql = "SELECT * FROM akun WHERE email='$email' ";
+                  $result = $conn->query($sql);
+                  $row=$result->fetch_assoc();
+                  $adminId=$row['id'];
+                  
+                  $sql = "INSERT INTO auth (id, email,password) VALUES($adminId,'$email','$password')";
+                  $result = $conn->query($sql);
+                  
                               $sql =  "INSERT INTO `biodata`(`id`) VALUES ($adminId)";
                               $result = $conn->query($sql);
                               $tokhs=json_encode($khs);

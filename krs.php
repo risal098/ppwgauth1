@@ -53,7 +53,7 @@ $email = $row['email'];
             </div>
             <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
             <div class="commonOption"><a href=<?php echo "table.php?adminId=$adminId" ?>><img src="assets/logoTable.png" height="14px" width="14px">
-                    Table Data</a> </div>
+                    KHS</a> </div>
                     <div class="block" style="min-height:25px;background-color:white;" name="block2"></div>
             <div class="commonOption"><a><img src="assets/logoTable.png" height="14px" width="14px">
                     KRS</a> </div>
