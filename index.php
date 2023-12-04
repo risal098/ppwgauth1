@@ -27,10 +27,10 @@ if (isset($_GET['code'])) {
    $name =  $google_account_info->name;
    try{
      $sql = "SELECT * FROM akun WHERE email='$email' ";
-     $servername = "localhost"; 
-   $usernamedb = "root";
-   $passworddb = ""; 
-   $dbname = "ppwauth2";
+     $servername = "ned.masuk.id"; 
+     $usernamedb = "uiulutbl_siakad";
+     $passworddb = "siakad@123"; 
+     $dbname = "uiulutbl_ppw_auth";
      $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);
                    $result = $conn->query($sql);
                    $row=$result->fetch_assoc();

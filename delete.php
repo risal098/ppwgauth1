@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost"; 
-$username = "root";
-$password = ""; 
-$dbname ="ppwauth2";
+$servername = "ned.masuk.id"; 
+$usernamedb = "uiulutbl_siakad";
+$passworddb = "siakad@123"; 
+$dbname = "uiulutbl_ppw_auth";
 
 
 try{
