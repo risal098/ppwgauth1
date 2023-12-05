@@ -23,6 +23,10 @@ $row = $result->fetch_assoc();
 $email = $row['email'];
 //$role=$row['role'];
 
+$sqlBiodata="SELECT * FROM biodata WHERE id=$adminId";
+$resultBiodata = $conn->query($sqlBiodata);
+$rowBiodata=$resultBiodata->fetch_assoc();
+
 
 
 ?>
@@ -104,9 +108,9 @@ $email = $row['email'];
                 
                     echo " <div class='commonDiv fs-5'>";
               //   {
-                    echo '<table border="1">';
+                    echo '<table border="1" class="table table-striped">';
                     echo '<tr>
-                    <th >No</th>
+                    <th>No</th>
                     <th>Nama Matkul</th>
                     <th>Kode Matkul</th>
                     <th>Nilai Matkul</th>
@@ -155,6 +159,38 @@ $email = $row['email'];
                 }
             
             ?>
+
+            <div class="biodataBody">
+                <div class="fs-4 fw-bold">
+                    <br>Biodata
+                </div>
+                <table class="table table-striped bioTable">
+                    <tr>
+                        <td>Nama: </td>
+                        <td class="table-secondary"><?php echo $rowBiodata["nama"] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Nomor Registrasi: </td>
+                        <td class="table-secondary"><?php echo $rowBiodata["noreg"] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Tempat Tanggal Lahir: </td>
+                        <td class="table-secondary"><?php echo $rowBiodata["ttl"] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td class="table-secondary"><?php echo $rowBiodata["email"] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Telepon: </td>
+                        <td class="table-secondary"><?php echo $rowBiodata["telepon"] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Alamat Lengkap: </td>
+                        <td class="table-secondary"><?php echo $rowBiodata["alamatlengkap"] ?></td>
+                    </tr>
+                </table>
+            </div>
             
         </div>
     </div>
