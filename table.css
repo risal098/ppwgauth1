@@ -49,6 +49,8 @@
     background-color: rgb(255, 255, 255);
     width: 100%;
     min-height: 50px;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -62,7 +64,21 @@
 }
 table{
     border-collapse: collapse;
+    text-align: center;
 }
+.bioTable {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+}
+
+.biodataBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 tr:nth-child(even) {
     background-color: #ececec;
   }

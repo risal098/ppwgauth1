@@ -102,7 +102,7 @@ $email = $row['email'];
                     $decjson=json_decode($result["krs"],true);
 
                   //   {
-                        echo '<table border="1">';
+                        echo '<table border="1" class="table table-striped">';
                         echo '<tr>
                         <th >No</th>
                         <th>Nama Matkul</th>
