@@ -7,12 +7,13 @@ require 'vendor/autoload.php';
 $clientID = "1085395854703-4vnu3f6g7cofi23octqvdpd50s89844t.apps.googleusercontent.com";
 $clientSecret = "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";
 $redirectUri = 'http://localhost:5000/register.php';
+
 $status="";
-$servername = "ned.masuk.id"; 
-$usernamedb = "uiulutbl_siakad";
-$passworddb = "siakad@123"; 
-$dbname = "uiulutbl_ppw_auth";
-   $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);
+$servername = "localhost"; 
+$usernamedb = "root";
+$passworddb = ""; 
+$dbname = "ppwauth2";
+$conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);
 // 
 $client = new Google_Client();
 $client->setClientId($clientID);

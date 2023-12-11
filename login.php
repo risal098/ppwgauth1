@@ -17,10 +17,10 @@ $clientSecret = "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";
 
 
 
-     $servername = "ned.masuk.id"; 
-     $usernamedb = "uiulutbl_siakad";
-     $passworddb = "siakad@123"; 
-     $dbname = "uiulutbl_ppw_auth";
+     $servername = "localhost"; 
+     $usernamedb = "root";
+     $passworddb = ""; 
+     $dbname = "ppwauth2";
    $status="";
    $num1=rand(0,11);
    $num2=rand(0,11);
