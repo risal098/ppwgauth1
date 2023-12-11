@@ -107,6 +107,16 @@ background: linear-gradient(0deg, rgb(13, 7, 121) 0%, rgb(125, 129, 170)100%);
     
 }
 
+.adminGear {
+  justify-content: center;
+  display:flex;
+  margin-bottom: 4rem;
+  size: 5rem;
+  font-size: 5rem;
+  width: auto;
+  height: 4rem;
+}
+
 .halKhs {
 
   margin-left: 20rem;

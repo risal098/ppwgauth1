@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost"; 
-$usernamedb = "root";
-$passworddb = ""; 
-$dbname = "ppwauth2";
+$servername = "ned.masuk.id"; 
+$usernamedb = "uiulutbl_siakad";
+$passworddb = "siakad@123"; 
+$dbname = "uiulutbl_ppw_auth";
 $status="";
 try{
     $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);}
@@ -53,7 +53,7 @@ $sql="UPDATE `biodata` SET
 WHERE id=$adminId";
 $conn->query($sql);
 header("Location: /tambah.php?adminId=$adminId");
-}catch(Exception $e){ $status="make sure to check no registrasi data type (integer only)<br> and make sure database connection is no problem";}
+}catch(Exception $e){ $status="make sure to check no registrasi data type (integer only)<br> and make sure database connection is no problem $e";}
 
 
    
@@ -100,10 +100,6 @@ header("Location: /tambah.php?adminId=$adminId");
   <path fill-rule="evenodd" d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z"/>
   <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
 </svg> Logout</button></a> </div>
-<div class="commonOption"><a href=<?php echo "/dashboard/table.php" ?>><button class="btn btn-warning"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
-  <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
-  <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0M7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0"/>
-</svg> Dashboard</button></a> </div>
                 
                     
             </div>
@@ -130,7 +126,7 @@ header("Location: /tambah.php?adminId=$adminId");
                     <input type="text" placeholder="Nama Lengkap"  name="nama"  value="<?php echo $rowBiodata["nama"] ?>" required>
 
                     <div class="commonLabel"><p>No Registrasi:</p></div>
-                    <input type="text" value="<?php echo $rowBiodata["noreg"] ?>"  name="noreg"  placeholder="No Registrasi"  required>
+                    <input type="text" value="<?php echo $rowBiodata["noreg"] ?>"  name="noreg"  placeholder="No Registrasi" required>
 
                     <div class="commonLabel"><p>tempat tanggal lahir</p></div>
                     <input type="text" value="<?php echo $rowBiodata["ttl"] ?>"  name="ttl"  placeholder="tempat tanggal lahir"  required>

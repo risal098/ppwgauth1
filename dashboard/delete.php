@@ -1,13 +1,13 @@
 <?php
 
-$servername = "localhost"; 
-$usernamedb = "root";
-$passworddb = ""; 
-$dbname = "ppwauth2";
+$servername = "ned.masuk.id"; 
+$usernamedb = "uiulutbl_siakad";
+$passworddb = "siakad@123"; 
+$dbname = "uiulutbl_ppw_auth";
 
 
 try{
-    $conn = new mysqli($servername, $username, $password, $dbname);}
+    $conn = new mysqli($servername, $usernamedb, $passworddb, $dbname);}
     catch(Exception $e){
         echo "Error connecting to database, pastikan format database benar (ikuti langkah file catatan): <br>";
         echo $e->getMessage();
