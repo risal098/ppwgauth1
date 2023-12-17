@@ -116,7 +116,9 @@ if ($conn->connect_error) {
                             echo '<td ><div class="commonDiv">' . $row["password"] . '</div></td>';
               
                             echo '<td ><div class="commonDiv">
+                            <a class="edit" href="./edit.php?adminId='.$row["id"].'">EDIT</a>
                             
+                            <div  style="min-width:65px;" name="block2">
                             <a class="delete" href="./delete.php?adminId='.$row["id"].'">DELETE</a>
                             </div></td>';
                             echo '</tr>';
