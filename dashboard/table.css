@@ -52,6 +52,20 @@
     
 }
 
+.fillColorProfile {
+  fill: #275827;
+}
+
+.profileText {
+
+  color: #275827;
+  font-weight: 600;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .commonOption{
     background-color: rgb(255, 255, 255);
     text-decoration: none;
@@ -61,7 +75,10 @@
     
 }
 table{
-    border-collapse: collapse;
+  border-collapse: collapse;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
 }
 tr:nth-child(even) {
     background-color: #ececec;
@@ -83,7 +100,7 @@ th,td{
 .cardLeft{
     padding-top: 60px;
     background: rgb(21,13,182);
-background: linear-gradient(0deg, rgb(13, 7, 121) 0%, rgb(125, 129, 170)100%);
+    background: linear-gradient(to bottom, #ffcc66 0%, #ffffcc 100%);
     justify-content: center;
     border-bottom-right-radius: 18px;
     border-bottom-left-radius: 18px;
@@ -91,21 +108,6 @@ background: linear-gradient(0deg, rgb(13, 7, 121) 0%, rgb(125, 129, 170)100%);
     
 }
 
-.halKhs {
-
-  margin-left: 20rem;
-  width: 20rem;
-  display: flex;
-  justify-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  text-align: center;
-
-}
-
-.siakadJudul {
-  width: 50rem;
-}
 
 .cardEdit{
     padding-left: 15px;
@@ -135,24 +137,66 @@ input[type=submit] {
   cursor: pointer;
 }
 .edit{
-  
-  background-color: blue;
+  background-color: chocolate;
   border-radius: 6px;
   text-decoration: none;
   color: white;
   justify-content: center;
   padding: 5px 5px;
+  margin: 1rem;
 }
 
-.edit :hover{
+.edit:hover{
   background-color: rgb(189, 189, 241);
   color: white;
 }
-.delete :hover{
+
+.delete{
+  background-color: rgb(255, 90, 90);
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  justify-content: center;
+  padding: 5px 5px;
+  margin: 1rem;
+}
+.delete:hover{
   background-color: rgb(255, 90, 90);
   color: white;
 }
-.commonDiv a :hover{
+.commonDiv a:hover{
   background-color: rgb(240, 240, 240);
   color: rgb(24, 23, 23);
+}
+
+.adminGear {
+  justify-content: center;
+  display:flex;
+  margin-bottom: 4rem;
+  size: 5rem;
+  font-size: 5rem;
+  width: auto;
+  height: 4rem;
+}
+
+.headerBlock {
+  
+  padding: 0.5rem;
+  padding-left: 2rem;
+  background-color: #10121C;
+  display: flex;
+  justify-content: space-between;
+  color: darkslategrey;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  background: linear-gradient(to right, #99ffcc 0%, #ccffcc 100%);
+}
+
+.headerLogo {
+
+  width: auto;
+  height: 100px;
+  margin: 8px;
+
 }
