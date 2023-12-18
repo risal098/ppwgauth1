@@ -189,8 +189,6 @@ if (isset($_GET['code'])) {
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
         <div class="login-form">
           <img src="assets/logoUnj.png" class="logo w-25 position-relative translate-middle translate-middle-x pb-2 start-50">  
           <h3 class="position-relative">Register New Account</h3>
@@ -217,18 +215,15 @@ if (isset($_GET['code'])) {
             </p>
           </form>
           <a href="<?=$client->createAuthUrl()?>" class="btn btn-default" id="bCheckIn" value="action01">
-        <img src="assets/gugel.png" width="35" height="35"/>
-        <span class="hidden-xs hidden-sm">Sign Up with Google Account</span>
-    </a>
+              <img src="assets/gugel.png" width="35" height="35"/>
+              <span class="hidden-xs hidden-sm">Sign Up with Google Account</span>
+          </a>
         </div>
-      </div>
       
-      <div class="col-md-6 d-flex">
-        <img src="assets/gedung.jpg" class="rounded gedung mt-5 mb-5">
+      <div class="imageBox d-flex">
+          <img src="assets/gedung.jpg" class="gedungPict rounded mt-5 mb-5">
       </div>
-    </div>    
-  </div>
-
+      </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://accounts.google.com/gsi/client" async></script>
     <script src="bootstrap-autocomplete.min.js"></script>

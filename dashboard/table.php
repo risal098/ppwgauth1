@@ -66,8 +66,8 @@ if ($conn->connect_error) {
             </div>
             <div class="mainRightDiv">
             <div class="headerBlock" style="min-height:45px;" name="block2">
-                <p class="fs-2 fw-bolder siakadJudul">SIAKAD UNJ - ADMIN</p>
-                <p class="fs-3 fw-bolder halKhs">Halaman Dashboard</p>
+                <p class="fs-2 fw-bolder">SIAKAD UNJ - ADMIN</p>
+                <p class="fs-3 fw-bolder">Halaman Dashboard</p>
                 <img src="../assets/logoUnj.png" alt="logo unj" height="64px" width="64px" class="headerLogo">
             </div>
                 <div class="commonDiv">

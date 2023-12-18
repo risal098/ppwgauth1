@@ -129,8 +129,6 @@ $clientSecret = "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";
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
           <div class="login-form">
             <img src="assets/logoUnj.png" class="logo w-25 position-relative translate-middle translate-middle-x pb-2 start-50">
             <h3 class="position-relative">Login to SIAKAD</h3>
@@ -152,9 +150,9 @@ $clientSecret = "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";
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
               <a href="<?=$clients1->createAuthUrl()?>" class="btn btn-default" id="bCheckIn" value="action01">
-        <img src="assets/gugel.png" width="35" height="35"/>
-        <span class="hidden-xs hidden-sm">Sign in with Google Account</span>
-    </a>
+                <img src="assets/gugel.png" width="35" height="35"/>
+                <span class="hidden-xs hidden-sm">Sign in with Google Account</span>
+               </a>
               
               <p class="forgot-password text-right">
                 <a href="#">Forgot password?</a>
@@ -164,11 +162,9 @@ $clientSecret = "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";
               </p>
             </form>
           </div>
+        <div class="imageBox d-flex">
+          <img src="assets/gedung.jpg" class="gedungPict rounded mt-5 mb-5">
         </div>
-        <div class="col-md-6 d-flex">
-          <img src="assets/gedung.jpg" class="rounded gedung mt-5 mb-5">
-        </div>
-      </div>    
     </div>
     <script src="https://accounts.google.com/gsi/client" async></script>
     <script src="bootstrap-autocomplete.min.js"></script>

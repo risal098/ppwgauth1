@@ -2,15 +2,43 @@ body{
     background-image: url("./assets/background.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 
 }
+
 .mainDiv{
     display: flex;
-    
     height: 100%;
     width: 100%;
     position: absolute;
     
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    gap: 4rem;
+    align-items: center;
+    margin: 0 !important;
+}
+
+.gedungPict {
+    mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0.2));
+    height: 39rem;
+    width: auto;
+    border: 1px solid black;
+    display: flex;
+
+}
+
+.imageBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .commonDiv{

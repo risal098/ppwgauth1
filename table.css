@@ -37,8 +37,8 @@
     flex-direction: column;
     width: auto;
     box-shadow: 11px 3px 24px -15px rgba(0,0,0,0.72);
--webkit-box-shadow: 11px 3px 24px -15px rgba(0,0,0,0.72);
--moz-box-shadow: 11px 3px 24px -15px rgba(0,0,0,0.72);
+    -webkit-box-shadow: 11px 3px 24px -15px rgba(0,0,0,0.72);
+    -moz-box-shadow: 11px 3px 24px -15px rgba(0,0,0,0.72);
     background-color: rgb(255, 255, 255);
     /* min-width: 220px; */
     /* min-height: 50px;    */
@@ -49,8 +49,6 @@
     background-color: rgb(255, 255, 255);
     width: 100%;
     min-height: 50px;
-    display: flex;
-    flex-direction: column;
     
 }
 
@@ -97,14 +95,14 @@ th,td{
 }
 
 .cardLeft{
-    padding-top: 60px;
-    background: rgb(21,13,182);
-background: linear-gradient(0deg, rgb(13, 7, 121) 0%, rgb(125, 129, 170)100%);
-    justify-content: center;
-    border-bottom-right-radius: 18px;
-    border-bottom-left-radius: 18px;
-    color:rgb(240, 240, 240);
-    
+  padding-top: 60px;
+  background: rgb(21,13,182);
+  background: linear-gradient(to bottom, #ffcc66 0%, #ffffcc 100%);
+  justify-content: center;
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  color:rgb(240, 240, 240);
+  
 }
 
 .adminGear {
@@ -115,22 +113,6 @@ background: linear-gradient(0deg, rgb(13, 7, 121) 0%, rgb(125, 129, 170)100%);
   font-size: 5rem;
   width: auto;
   height: 4rem;
-}
-
-.halKhs {
-
-  margin-left: 20rem;
-  width: 20rem;
-  display: flex;
-  justify-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  text-align: center;
-
-}
-
-.siakadJudul {
-  width: 50rem;
 }
 
 .cardEdit{
@@ -181,4 +163,50 @@ input[type=submit] {
 .commonDiv a :hover{
   background-color: rgb(240, 240, 240);
   color: rgb(24, 23, 23);
+}
+
+.fillColorProfile {
+  fill: #275827;
+}
+
+.profileText {
+
+  color: #275827;
+  font-weight: 600;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.adminPict {
+  justify-content: center;
+  display:flex;
+  margin-bottom: 5rem;
+  size: 5rem;
+  font-size: 5rem;
+  width: auto;
+  height: 4rem;
+}
+
+.headerBlock {
+  
+  padding: 0.5rem;
+  padding-left: 2rem;
+  background-color: #10121C;
+  display: flex;
+  justify-content: space-between;
+  color: darkslategrey;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  background: linear-gradient(to right, #99ffcc 0%, #ccffcc 100%);
+}
+
+.headerLogo {
+
+  width: auto;
+  height: 100px;
+  margin: 8px;
+
 }
